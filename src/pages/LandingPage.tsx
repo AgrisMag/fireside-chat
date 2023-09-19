@@ -17,14 +17,18 @@ export const LandingPage = () => {
 
   return (
     <LandingPageWrapper>
-      <label htmlFor="email">Email</label>
-      <input
-        type="text"
-        id="email"
-        onChange={(event) => handleEmailChange(event)}
-      />
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" />
+      <label htmlFor="email">
+        Email
+        <input
+          type="text"
+          id="email"
+          onChange={(event) => handleEmailChange(event)}
+        />
+      </label>
+      <label htmlFor="password">
+        Password
+        <input type="password" id="password" />
+      </label>
       <input
         type="button"
         value="Enter"
