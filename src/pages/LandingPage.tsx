@@ -1,39 +1,26 @@
 import styled from "@emotion/styled";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
+import { TextInput } from "../components/Input";
 
 export const LandingPage = () => {
-  const [email, setEmail] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | undefined>(undefined);
+  const [password, setPassword] = useState<string | undefined>(undefined);
 
-  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+  const handleEmailChange = (value: string) => {
     setEmail(value);
   };
 
-  console.log(email);
-
-  const handleEnter = () => {
-    console.log("Entering for a chat!");
+  const handlePasswordChange = (value: string) => {
+    setPassword(value);
   };
 
   return (
     <LandingPageWrapper>
-      <label htmlFor="email">
-        Email
-        <input
-          type="text"
-          id="email"
-          onChange={(event) => handleEmailChange(event)}
-        />
-      </label>
-      <label htmlFor="password">
-        Password
-        <input type="password" id="password" />
-      </label>
-      <input
-        type="button"
-        value="Enter"
-        style={{ marginTop: "10px" }}
-        onClick={handleEnter}
+      <TextInput type="email" onChange={handleEmailChange} value={email} />
+      <TextInput
+        type="password"
+        onChange={handlePasswordChange}
+        value={password}
       />
     </LandingPageWrapper>
   );
