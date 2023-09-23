@@ -4,16 +4,18 @@ import styled from "@emotion/styled";
 type TextInputProps = {
   type: string;
   onChange: (value: string) => void;
-  value?: string;
+  value: string;
+  id?: string;
   placeholder?: string;
 };
 
-// FIXME: Fix controlled uncontrolled error state of input.
 export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
   placeholder,
   type,
+  id,
+  ...props
 }) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
@@ -25,6 +27,8 @@ export const TextInput: React.FC<TextInputProps> = ({
       value={value}
       onChange={handleInputChange}
       placeholder={placeholder}
+      id={id}
+      {...props}
     />
   );
 };

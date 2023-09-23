@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { TextInput } from "../components/Input";
+import { Label } from "../components/Label";
 
 export const LandingPage = () => {
-  const [email, setEmail] = useState<string | undefined>(undefined);
-  const [password, setPassword] = useState<string | undefined>(undefined);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleEmailChange = (value: string) => {
     setEmail(value);
@@ -16,11 +17,21 @@ export const LandingPage = () => {
 
   return (
     <LandingPageWrapper>
-      <TextInput type="email" onChange={handleEmailChange} value={email} />
+      <Label htmlFor="email">Email</Label>
+      <TextInput
+        type="email"
+        onChange={handleEmailChange}
+        value={email}
+        placeholder="Email"
+        id="email"
+      />
+      <Label htmlFor="password">Password</Label>
       <TextInput
         type="password"
         onChange={handlePasswordChange}
         value={password}
+        placeholder="Password"
+        id="password"
       />
     </LandingPageWrapper>
   );
