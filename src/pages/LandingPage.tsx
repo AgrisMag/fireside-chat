@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import { TextInput } from "../components/Input";
 import { Label } from "../components/Label";
+import { Button } from "../components/Button";
 
 export const LandingPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -13,6 +14,10 @@ export const LandingPage = () => {
 
   const handlePasswordChange = (value: string) => {
     setPassword(value);
+  };
+
+  const handleSubmit = () => {
+    console.log("Submitted");
   };
 
   return (
@@ -33,6 +38,7 @@ export const LandingPage = () => {
         placeholder="Password"
         id="password"
       />
+      <Button onClick={handleSubmit}>Submit</Button>
     </LandingPageWrapper>
   );
 };
