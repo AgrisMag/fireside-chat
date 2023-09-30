@@ -1,12 +1,23 @@
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleSignInClick = () => {
+    navigate("/signin");
+  };
+
+  const handleSignUpClick = () => {
+    navigate("/signup");
+  };
+
   return (
     <NavbarWrapper>
       <div>Fireside chat</div>
       <div>
-        <button>Sign In</button>
-        <button>Sign Up</button>
+        <button onClick={handleSignInClick}>Sign In</button>
+        <button onClick={handleSignUpClick}>Sign Up</button>
       </div>
     </NavbarWrapper>
   );
