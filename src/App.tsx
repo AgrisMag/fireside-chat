@@ -4,7 +4,6 @@ import { LandingPage } from "./pages/LandingPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { Navbar } from "./components/Navbar";
 
-// TODO: Add routing
 function App() {
   return (
     <BrowserRouter>

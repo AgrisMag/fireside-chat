@@ -22,22 +22,26 @@ export const LandingPage = () => {
 
   return (
     <LandingPageWrapper>
-      <Label htmlFor="email">Email</Label>
-      <TextInput
-        type="email"
-        onChange={handleEmailChange}
-        value={email}
-        placeholder="Email"
-        id="email"
-      />
-      <Label htmlFor="password">Password</Label>
-      <TextInput
-        type="password"
-        onChange={handlePasswordChange}
-        value={password}
-        placeholder="Password"
-        id="password"
-      />
+      <InputWrapper>
+        <Label htmlFor="email">Email</Label>
+        <TextInput
+          type="email"
+          onChange={handleEmailChange}
+          value={email}
+          placeholder="Email"
+          id="email"
+        />
+      </InputWrapper>
+      <InputWrapper>
+        <Label htmlFor="password">Password</Label>
+        <TextInput
+          type="password"
+          onChange={handlePasswordChange}
+          value={password}
+          placeholder="Password"
+          id="password"
+        />
+      </InputWrapper>
       <Button onClick={handleSubmit}>Submit</Button>
     </LandingPageWrapper>
   );
@@ -45,5 +49,18 @@ export const LandingPage = () => {
 
 const LandingPageWrapper = styled("div")({
   display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   flexDirection: "column",
+  margin: "15px",
+  "& > *": {
+    margin: "10px",
+  },
+});
+
+const InputWrapper = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 });

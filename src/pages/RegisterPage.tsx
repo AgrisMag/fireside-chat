@@ -27,27 +27,33 @@ export const RegisterPage = () => {
 
   return (
     <RegisterPageWrapper>
-      <Label htmlFor="username">Username</Label>
-      <TextInput
-        type="text"
-        value={username}
-        onChange={handleUsernameChange}
-        id="username"
-      />
-      <Label htmlFor="registration-email">Email</Label>
-      <TextInput
-        type="email"
-        value={email}
-        onChange={handleEmailChange}
-        id="registration-email"
-      />
-      <Label htmlFor="registration-password">Password</Label>
-      <TextInput
-        type="password"
-        value={password}
-        onChange={handlePasswordChange}
-        id="registration-password"
-      />
+      <InputWrapper>
+        <Label htmlFor="username">Username</Label>
+        <TextInput
+          type="text"
+          value={username}
+          onChange={handleUsernameChange}
+          id="username"
+        />
+      </InputWrapper>
+      <InputWrapper>
+        <Label htmlFor="registration-email">Email</Label>
+        <TextInput
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          id="registration-email"
+        />
+      </InputWrapper>
+      <InputWrapper>
+        <Label htmlFor="registration-password">Password</Label>
+        <TextInput
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          id="registration-password"
+        />
+      </InputWrapper>
       <Button onClick={handleRegistration}>Register</Button>
     </RegisterPageWrapper>
   );
@@ -56,6 +62,17 @@ export const RegisterPage = () => {
 const RegisterPageWrapper = styled("div")({
   display: "flex",
   flexDirection: "column",
-  border: "2px solid #fff",
-  padding: "15px",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "15px",
+  "& > *": {
+    margin: "10px",
+  },
+});
+
+const InputWrapper = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 });
