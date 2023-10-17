@@ -14,12 +14,26 @@ export const ChatPage = () => {
   return (
     <ChatPageWrapper>
       <ContactList />
-      <ChatWindow />
-      <TextInput type="text" onChange={handleInputChange} value={inputValue} />
+      <ChatAndInputWrapper>
+        <ChatWindow />
+        <TextInput
+          type="text"
+          onChange={handleInputChange}
+          value={inputValue}
+        />
+      </ChatAndInputWrapper>
     </ChatPageWrapper>
   );
 };
 
 const ChatPageWrapper = styled("div")({
-  display: "block",
+  display: "flex",
+});
+
+const ChatAndInputWrapper = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  height: "100vh",
+  width: "100%",
 });
