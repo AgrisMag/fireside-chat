@@ -8,8 +8,8 @@ export const ChatWindow = ({ message }: ChatMessageProps) => {
   return (
     <ChatPageWrapper>
       <MessageWrapper>
-        {message.reverse().map((message) => (
-          <li>{message}</li>
+        {message.reverse().map((message, idx) => (
+          <li key={idx}>{message}</li>
         ))}
       </MessageWrapper>
     </ChatPageWrapper>
