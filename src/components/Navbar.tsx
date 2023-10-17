@@ -12,12 +12,17 @@ export const Navbar = () => {
     navigate("/signup");
   };
 
+  const handleEnterChatClick = () => {
+    navigate("/chat");
+  };
+
   return (
     <NavbarWrapper>
       <div>Fireside chat</div>
       <div>
         <button onClick={handleSignInClick}>Sign In</button>
         <button onClick={handleSignUpClick}>Sign Up</button>
+        <button onClick={handleEnterChatClick}>Enter chat</button>
       </div>
     </NavbarWrapper>
   );
