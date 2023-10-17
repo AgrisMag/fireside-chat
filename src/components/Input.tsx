@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 type TextInputProps = {
   type: string;
   onChange: (value: string) => void;
+  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   value: string;
   id?: string;
   placeholder?: string;

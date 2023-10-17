@@ -1,9 +1,17 @@
 import styled from "@emotion/styled";
 
-export const ChatWindow = () => {
+type ChatMessageProps = {
+  message: string[];
+};
+
+export const ChatWindow = ({ message }: ChatMessageProps) => {
   return (
     <ChatPageWrapper>
-      <h1>Chat Window</h1>
+      <MessageWrapper>
+        {message.reverse().map((message) => (
+          <li>{message}</li>
+        ))}
+      </MessageWrapper>
     </ChatPageWrapper>
   );
 };
@@ -14,5 +22,16 @@ const ChatPageWrapper = styled("div")({
   alignItems: "center",
   backgroundColor: "#395721",
   width: "100%",
-  height: "100vh",
+  height: "100%",
+});
+
+const MessageWrapper = styled("ul")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-end",
+  alignItems: "flex-end",
+  width: "100%",
+  height: "100%",
+  padding: "10px",
+  listStyle: "none",
 });

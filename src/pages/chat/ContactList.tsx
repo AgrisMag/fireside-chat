@@ -1,7 +1,18 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-const contactList: string[] = ["John", "Jane", "Joe"];
+type ContactList = {
+  name: string;
+  id: number;
+};
+
+const contactList = [
+  { name: "John", id: 0 },
+  { name: "Jane", id: 1 },
+  { name: "Joe", id: 2 },
+  { name: "Jill", id: 3 },
+  { name: "Jack", id: 4 },
+];
 
 export const ContactList = () => {
   const [selectedContact, setSelectedContact] = useState<number>(0);
@@ -12,13 +23,13 @@ export const ContactList = () => {
   return (
     <ContactListWrapper>
       <h1>Contact List</h1>
-      {contactList.map((contact, id: number) => (
+      {contactList.map((contact: ContactList) => (
         <Contact
-          key={id}
-          onClick={() => handleContactSelect(id)}
-          selectedContact={selectedContact === id}
+          key={contact.id}
+          onClick={() => handleContactSelect(contact.id)}
+          selectedContact={selectedContact === contact.id}
         >
-          {contact}
+          {contact.name}
         </Contact>
       ))}
     </ContactListWrapper>
