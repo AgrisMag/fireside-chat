@@ -6,9 +6,12 @@ type TextInputProps = {
   onChange: (value: string) => void;
   onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   value: string;
+  name?: string;
   id?: string;
   placeholder?: string;
 };
+
+// TODO: Decide if you want to use this component or not, alternative would be using the Input component from Material UI or something similar
 
 export const TextInput: React.FC<TextInputProps> = ({
   value,

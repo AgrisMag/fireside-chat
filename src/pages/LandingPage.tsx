@@ -1,19 +1,22 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
-import { TextInput } from "../components/Input";
+import { ChangeEvent, useState } from "react";
 import { Label } from "../components/Label";
 import { Button } from "../components/Button";
 
+type LoginInfo = {
+  email: string;
+  password: string;
+};
+
 export const LandingPage = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [loginInfo, setLoginInfo] = useState<LoginInfo>({
+    email: "",
+    password: "",
+  });
 
-  const handleEmailChange = (value: string) => {
-    setEmail(value);
-  };
-
-  const handlePasswordChange = (value: string) => {
-    setPassword(value);
+  const handleLoginInfoChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setLoginInfo({ ...loginInfo, [event.target.name]: value });
   };
 
   const handleSubmit = () => {
@@ -24,20 +27,22 @@ export const LandingPage = () => {
     <LandingPageWrapper>
       <InputWrapper>
         <Label htmlFor="email">Email</Label>
-        <TextInput
+        <input
           type="email"
-          onChange={handleEmailChange}
-          value={email}
+          onChange={handleLoginInfoChange}
+          value={loginInfo.email}
+          name={"email"}
           placeholder="Email"
           id="email"
         />
       </InputWrapper>
       <InputWrapper>
         <Label htmlFor="password">Password</Label>
-        <TextInput
+        <input
           type="password"
-          onChange={handlePasswordChange}
-          value={password}
+          onChange={handleLoginInfoChange}
+          value={loginInfo.password}
+          name="password"
           placeholder="Password"
           id="password"
         />

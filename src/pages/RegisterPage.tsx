@@ -1,27 +1,23 @@
 import styled from "@emotion/styled";
 import { Label } from "../components/Label";
-import { TextInput } from "../components/Input";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Button } from "../components/Button";
 
+type RegistrationInfo = { username: string; email: string; password: string };
+
 export const RegisterPage = () => {
-  const [username, setUsername] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [registrationInfo, setRegistrationInfo] = useState<RegistrationInfo>({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-  const handleUsernameChange = (value: string) => {
-    setUsername(value);
+  const handleRegistration = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setRegistrationInfo({ ...registrationInfo, [event.target.name]: value });
   };
 
-  const handleEmailChange = (value: string) => {
-    setEmail(value);
-  };
-
-  const handlePasswordChange = (value: string) => {
-    setPassword(value);
-  };
-
-  const handleRegistration = () => {
+  const handleSubmitRegistration = () => {
     console.log("Registered");
   };
 
@@ -29,32 +25,35 @@ export const RegisterPage = () => {
     <RegisterPageWrapper>
       <InputWrapper>
         <Label htmlFor="username">Username</Label>
-        <TextInput
+        <input
           type="text"
-          value={username}
-          onChange={handleUsernameChange}
+          value={registrationInfo.username}
+          name={"username"}
+          onChange={handleRegistration}
           id="username"
         />
       </InputWrapper>
       <InputWrapper>
         <Label htmlFor="registration-email">Email</Label>
-        <TextInput
+        <input
           type="email"
-          value={email}
-          onChange={handleEmailChange}
+          value={registrationInfo.email}
+          name={"email"}
+          onChange={handleRegistration}
           id="registration-email"
         />
       </InputWrapper>
       <InputWrapper>
-        <Label htmlFor="registration-password">Password</Label>
-        <TextInput
+        <Label htmlFor="password">Password</Label>
+        <input
           type="password"
-          value={password}
-          onChange={handlePasswordChange}
+          value={registrationInfo.password}
+          name={"password"}
+          onChange={handleRegistration}
           id="registration-password"
         />
       </InputWrapper>
-      <Button onClick={handleRegistration}>Register</Button>
+      <Button onClick={handleSubmitRegistration}>Register</Button>
     </RegisterPageWrapper>
   );
 };
