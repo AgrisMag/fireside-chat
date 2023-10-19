@@ -4,25 +4,25 @@ import { useNavigate } from "react-router-dom";
 export const Navbar = () => {
   const navigate = useNavigate();
 
-  const handleSignInClick = () => {
-    navigate("/signin");
-  };
-
-  const handleSignUpClick = () => {
-    navigate("/signup");
-  };
-
-  const handleEnterChatClick = () => {
-    navigate("/chat");
+  const handleNavigate = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    navigate(`/${event.currentTarget.name}`);
   };
 
   return (
     <NavbarWrapper>
       <div>Fireside chat</div>
       <div>
-        <button onClick={handleSignInClick}>Sign In</button>
-        <button onClick={handleSignUpClick}>Sign Up</button>
-        <button onClick={handleEnterChatClick}>Enter chat</button>
+        <button name="signin" onClick={handleNavigate}>
+          Sign In
+        </button>
+        <button name="signup" onClick={handleNavigate}>
+          Sign Up
+        </button>
+        <button name="chat" onClick={handleNavigate}>
+          Enter chat
+        </button>
       </div>
     </NavbarWrapper>
   );
