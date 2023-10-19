@@ -6,6 +6,8 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
+// TODO: Switch to using Material UI's base button component
+
 export const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
   return <StyledButton onClick={onClick}>{children}</StyledButton>;
 };

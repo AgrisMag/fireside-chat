@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
+// TODO: Rebuild this component!
+
 export const Navbar = () => {
   const navigate = useNavigate();
 
