@@ -6,8 +6,6 @@ type LabelProps = {
   htmlFor?: string;
 };
 
-// TODO: Switch to using Material UI's base label component
-
 export const Label: React.FC<LabelProps> = ({ children, htmlFor }) => {
   return <StyledLabel htmlFor={htmlFor}>{children}</StyledLabel>;
 };

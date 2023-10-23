@@ -11,8 +11,6 @@ type TextInputProps = {
   placeholder?: string;
 };
 
-// TODO: Switch to using Material UI's base input component
-
 export const TextInput: React.FC<TextInputProps> = ({
   value,
   onChange,
