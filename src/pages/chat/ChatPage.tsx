@@ -37,6 +37,7 @@ export const ChatPage = () => {
           onChange={handleInputChange}
           value={inputValue}
           onKeyPress={handleKeyPress}
+          placeholder="Type a message..."
         />
         <InputButton onClick={handleInputSubmit}>Send</InputButton>
       </ChatAndInputWrapper>
