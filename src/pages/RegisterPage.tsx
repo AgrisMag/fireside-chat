@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Label } from "../components/Label";
 import { ChangeEvent, useState } from "react";
 import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 
 type RegistrationInfo = { username: string; email: string; password: string };
 
@@ -24,8 +24,8 @@ export const RegisterPage = () => {
   return (
     <RegisterPageWrapper>
       <InputWrapper>
-        <Label htmlFor="username">Username</Label>
-        <input
+        <Input
+          label="Username"
           type="text"
           value={registrationInfo.username}
           name={"username"}
@@ -34,8 +34,8 @@ export const RegisterPage = () => {
         />
       </InputWrapper>
       <InputWrapper>
-        <Label htmlFor="registration-email">Email</Label>
-        <input
+        <Input
+          label="Email"
           type="email"
           value={registrationInfo.email}
           name={"email"}
@@ -44,8 +44,8 @@ export const RegisterPage = () => {
         />
       </InputWrapper>
       <InputWrapper>
-        <Label htmlFor="password">Password</Label>
-        <input
+        <Input
+          label="Password"
           type="password"
           value={registrationInfo.password}
           name={"password"}

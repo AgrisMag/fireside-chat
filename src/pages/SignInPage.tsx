@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { ChangeEvent, useState } from "react";
-import { Label } from "../components/Label";
 import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 
 type LoginInfo = {
   email: string;
@@ -26,8 +26,8 @@ export const SignInPage = () => {
   return (
     <LandingPageWrapper>
       <InputWrapper>
-        <Label htmlFor="email">Email</Label>
-        <input
+        <Input
+          label="Email"
           type="email"
           onChange={handleLoginInfoChange}
           value={loginInfo.email}
@@ -37,8 +37,8 @@ export const SignInPage = () => {
         />
       </InputWrapper>
       <InputWrapper>
-        <Label htmlFor="password">Password</Label>
-        <input
+        <Input
+          label="Password"
           type="password"
           onChange={handleLoginInfoChange}
           value={loginInfo.password}
