@@ -4,6 +4,7 @@ import { SignInPage } from "./pages/SignInPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { Navbar } from "./components/Navbar";
 import { ChatPage } from "./pages/chat/ChatPage";
+import { LandingPage } from "./pages/LandingPage";
 
 function App() {
   return (
@@ -11,8 +12,22 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/chat" element={<ChatPage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/signup" element={<RegisterPage />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage>
+              <SignInPage />
+            </LandingPage>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <LandingPage>
+              <RegisterPage />
+            </LandingPage>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -14,7 +14,7 @@ export const Navbar = () => {
     <NavbarWrapper>
       <div>Fireside chat</div>
       <div>
-        <button name="signin" onClick={handleNavigate}>
+        <button name="" onClick={handleNavigate}>
           Sign In
         </button>
         <button name="signup" onClick={handleNavigate}>
