@@ -1,43 +1,32 @@
-import React, { ChangeEvent } from "react";
-import styled from "@emotion/styled";
+import React, { ChangeEvent, InputHTMLAttributes } from "react";
 
-type TextInputProps = {
-  type: string;
-  onChange: (value: string) => void;
-  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  value: string;
-  name?: string;
-  id?: string;
-  placeholder?: string;
-};
+// Define the props for the input component
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+}
 
-export const TextInput: React.FC<TextInputProps> = ({
-  value,
+export const Input: React.FC<InputProps> = ({
+  label,
   onChange,
-  placeholder,
-  type,
-  id,
-  ...props
+  onKeyPress,
+  ...rest
 }) => {
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
-
   return (
-    <Input
-      type={type}
-      value={value}
-      onChange={handleInputChange}
-      placeholder={placeholder}
-      id={id}
-      {...props}
-    />
+    <div className="mb-4">
+      <label
+        className="block text-gray-700 text-sm font-bold mb-2"
+        htmlFor={rest.id || rest.name}
+      >
+        {label}
+      </label>
+      <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        onChange={onChange}
+        onKeyDown={onKeyPress}
+        {...rest}
+      />
+    </div>
   );
 };
-
-const Input = styled("input")({
-  padding: "10px",
-  border: "1px solid #ccc",
-  borderRadius: "4px",
-  fontSize: "16px",
-});
