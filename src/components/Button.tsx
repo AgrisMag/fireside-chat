@@ -1,26 +1,17 @@
-import React from "react";
-import styled from "@emotion/styled";
-
-interface ButtonProps {
+type ButtonProps = {
   children: React.ReactNode;
-  onClick?: () => void;
-}
-
-export const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  name?: string;
 };
 
-const StyledButton = styled("button")({
-  padding: "10px 20px",
-  backgroundColor: "#007bff",
-  color: "#fff",
-  border: "none",
-  borderRadius: "4px",
-  fontSize: "16px",
-  cursor: "pointer",
-  transition: "background-color 0.3s",
-
-  "&:hover": {
-    backgroundColor: "#0056b3",
-  },
-});
+export const Button: React.FC<ButtonProps> = ({ children, onClick, name }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="px-4 py-2 bg-blue-500 text-white border rounded-md text-lg cursor-pointer transition duration-300 hover:bg-blue-700"
+      name={name}
+    >
+      {children}
+    </button>
+  );
+};

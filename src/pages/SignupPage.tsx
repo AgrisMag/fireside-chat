@@ -5,7 +5,7 @@ import { Input } from "../components/Input";
 
 type RegistrationInfo = { username: string; email: string; password: string };
 
-export const RegisterPage = () => {
+export const SignupPage = () => {
   const [registrationInfo, setRegistrationInfo] = useState<RegistrationInfo>({
     username: "",
     email: "",

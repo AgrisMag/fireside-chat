@@ -8,7 +8,7 @@ type LoginInfo = {
   password: string;
 };
 
-export const SignInPage = () => {
+export const SigninPage = () => {
   const [loginInfo, setLoginInfo] = useState<LoginInfo>({
     email: "",
     password: "",

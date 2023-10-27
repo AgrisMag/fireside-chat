@@ -1,11 +1,11 @@
 import React, { ChangeEvent, InputHTMLAttributes } from "react";
 
 // Define the props for the input component
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-}
+};
 
 export const Input: React.FC<InputProps> = ({
   label,
