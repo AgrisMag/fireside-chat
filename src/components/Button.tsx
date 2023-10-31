@@ -1,3 +1,5 @@
+import styled from "@emotion/styled";
+
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -6,12 +8,21 @@ type ButtonProps = {
 
 export const Button: React.FC<ButtonProps> = ({ children, onClick, name }) => {
   return (
-    <button
-      onClick={onClick}
-      className="px-4 py-2 bg-blue-500 text-white border rounded-md text-lg cursor-pointer transition duration-300 hover:bg-blue-700"
-      name={name}
-    >
+    <StyledButton onClick={onClick} name={name}>
       {children}
-    </button>
+    </StyledButton>
   );
 };
+
+const StyledButton = styled("button")({
+  border: "1px solid #2563EB",
+  borderRadius: "0.25rem",
+  padding: "0.5rem 1rem",
+  fontSize: "1rem",
+  fontWeight: 600,
+  cursor: "pointer",
+  transition: "all 0.2s ease-in-out",
+  "&:hover": {
+    backgroundColor: "#2563EB",
+  },
+});
