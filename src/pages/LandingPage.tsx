@@ -23,22 +23,14 @@ export const LandingPage = ({ children }: LandingPageProps) => {
         {/* Add styling, background image, or animation here */}
       </AboutSection>
       <ActionSection>
-        <div>
-          <Button
-            // className="px-3 py-1 m-2 bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50"
-            onClick={handleNavigate}
-            name=""
-          >
+        <ButtonWrapper>
+          <Button onClick={handleNavigate} name="">
             Sign in
           </Button>
-          <Button
-            // className="px-3 py-1 m-2 bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50"
-            onClick={handleNavigate}
-            name="signup"
-          >
+          <Button onClick={handleNavigate} name="signup">
             Sign Up
           </Button>
-        </div>
+        </ButtonWrapper>
         {/* Second half content */}
         {children}
         {/* Add links to register and sign-in pages here */}
@@ -60,9 +52,16 @@ const AboutSection = styled("div")({
 
 const ActionSection = styled("div")({
   display: "flex",
+  flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   padding: "1rem",
+});
+
+const ButtonWrapper = styled("div")({
+  position: "absolute",
+  top: "10px",
+  right: "10px",
 });
 
 const Button = styled("button")({
