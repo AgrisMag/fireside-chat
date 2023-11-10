@@ -5,6 +5,8 @@ type LandingPageProps = {
   children: React.ReactNode;
 };
 
+// TODO: Add styling to the landing page
+
 export const LandingPage = ({ children }: LandingPageProps) => {
   const navigate = useNavigate();
 
