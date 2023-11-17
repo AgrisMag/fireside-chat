@@ -17,8 +17,29 @@ export const SignUpPage = () => {
     setRegistrationInfo({ ...registrationInfo, [event.target.name]: value });
   };
 
-  const handleSubmitRegistration = () => {
-    console.log("Registered");
+  const handleSubmitRegistration = async () => {
+    console.log("registrationInfo", registrationInfo);
+    try {
+      const response = await fetch("http://localhost:3001/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registrationInfo),
+      });
+
+      console.log("response", response);
+
+      if (response.ok) {
+        const data = await response.json(); // Parse the JSON response
+        console.log("Registration successful:", data.message);
+        // Optionally, you can redirect the user or perform other actions upon successful registration.
+      } else {
+        console.error("Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
   };
 
   return (
