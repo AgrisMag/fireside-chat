@@ -27,7 +27,7 @@ export const LandingPage = ({ children }: LandingPageProps) => {
       <ActionSection>
         <ButtonWrapper>
           <Button onClick={handleNavigate} name="">
-            Sign in
+            Sign In
           </Button>
           <Button onClick={handleNavigate} name="signup">
             Sign Up
