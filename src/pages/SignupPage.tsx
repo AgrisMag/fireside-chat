@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { ChangeEvent, useState } from "react";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
+import axios from "axios";
 
 type RegistrationInfo = { username: string; email: string; password: string };
 
@@ -18,27 +19,14 @@ export const SignUpPage = () => {
   };
 
   const handleSubmitRegistration = async () => {
-    console.log("registrationInfo", registrationInfo);
     try {
-      const response = await fetch("http://localhost:3001/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(registrationInfo),
-      });
-
-      console.log("response", response);
-
-      if (response.ok) {
-        const data = await response.json(); // Parse the JSON response
-        console.log("Registration successful:", data.message);
-        // Optionally, you can redirect the user or perform other actions upon successful registration.
-      } else {
-        console.error("Registration failed. Please try again.");
-      }
+      const response = await axios.post(
+        "http://localhost:3001/register",
+        registrationInfo
+      );
+      console.log(response);
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.log(error);
     }
   };
 
