@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { ChangeEvent, useState } from "react";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
+import { useNavigate } from "react-router-dom";
 
 type LoginInfo = {
   email: string;
@@ -14,13 +15,15 @@ export const SignInPage = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleLoginInfoChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setLoginInfo({ ...loginInfo, [event.target.name]: value });
   };
 
-  const handleSubmit = () => {
-    console.log("Submitted");
+  const handleSignIn = () => {
+    navigate("/chat");
   };
 
   return (
@@ -47,7 +50,7 @@ export const SignInPage = () => {
           id="password"
         />
       </InputWrapper>
-      <Button onClick={handleSubmit}>Submit</Button>
+      <Button onClick={handleSignIn}>Submit</Button>
     </LandingPageWrapper>
   );
 };
