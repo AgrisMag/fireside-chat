@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { SignInPage } from "./pages/SignInPage";
 import { SignUpPage } from "./pages/SignupPage";
-import { ChatPage } from "./pages/chat/ChatPage";
+import { ChatPage } from "./pages/ChatPage";
 import { LandingPage } from "./pages/LandingPage";
 
 function App() {
