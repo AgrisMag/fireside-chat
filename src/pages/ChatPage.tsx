@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { ChangeEvent, useState } from "react";
 import { ContactsWindow } from "../components/ContactsWindow";
 import { ChatWindow } from "../components/ChatWindow";
-import { ChatInput } from "../components/ChatInput";
 
 export const ChatPage = () => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -21,16 +20,13 @@ export const ChatPage = () => {
         onContactSelect={(contact) => console.log(contact)}
       />
       <ChatAndInputWrapper>
-        <ChatWindow messages={message} />
-        <ChatInput
-          type="text"
-          value={inputValue}
-          name={"message"}
+        <ChatWindow
+          messages={message}
           onChange={(event: ChangeEvent<HTMLInputElement>) =>
             setInputValue(event.target.value)
           }
           onEnter={handleSendMessage}
-          id="message"
+          value={inputValue}
         />
       </ChatAndInputWrapper>
     </ChatPageWrapper>
