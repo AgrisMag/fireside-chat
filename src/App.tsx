@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { SignInPage } from "./pages/SignInPage";
-import { SignUpPage } from "./pages/SignupPage";
+import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
 import { ChatPage } from "./pages/ChatPage";
 import { LandingPage } from "./pages/LandingPage";
 
@@ -14,15 +14,15 @@ function App() {
           path="/"
           element={
             <LandingPage>
-              <SignInPage />
+              <LoginPage />
             </LandingPage>
           }
         />
         <Route
-          path="/signup"
+          path="/register"
           element={
             <LandingPage>
-              <SignUpPage />
+              <RegisterPage />
             </LandingPage>
           }
         />

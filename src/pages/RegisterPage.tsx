@@ -4,13 +4,13 @@ import { Button } from "../components/shared/Button";
 import { Input } from "../components/shared/Input";
 import axios from "axios";
 
-type RegistrationInfo = { username: string; email: string; password: string };
+type RegistrationInfo = { name: string; email: string; passwordHashed: string };
 
-export const SignUpPage = () => {
+export const RegisterPage = () => {
   const [registrationInfo, setRegistrationInfo] = useState<RegistrationInfo>({
-    username: "",
+    name: "",
     email: "",
-    password: "",
+    passwordHashed: "",
   });
 
   const handleRegistration = (event: ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +21,7 @@ export const SignUpPage = () => {
   const handleSubmitRegistration = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/register",
+        "http://localhost:3001/auth/register",
         registrationInfo
       );
       console.log(response);
@@ -36,10 +36,10 @@ export const SignUpPage = () => {
         <Input
           label="Username"
           type="text"
-          value={registrationInfo.username}
-          name={"username"}
+          value={registrationInfo.name}
+          name={"name"}
           onChange={handleRegistration}
-          id="username"
+          id="name"
         />
       </InputWrapper>
       <InputWrapper>
@@ -56,8 +56,8 @@ export const SignUpPage = () => {
         <Input
           label="Password"
           type="password"
-          value={registrationInfo.password}
-          name={"password"}
+          value={registrationInfo.passwordHashed}
+          name={"passwordHashed"}
           onChange={handleRegistration}
           id="registration-password"
         />

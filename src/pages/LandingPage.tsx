@@ -29,7 +29,7 @@ export const LandingPage = ({ children }: LandingPageProps) => {
           <Button onClick={handleNavigate} name="">
             Sign In
           </Button>
-          <Button onClick={handleNavigate} name="signup">
+          <Button onClick={handleNavigate} name="register">
             Sign Up
           </Button>
         </ButtonWrapper>
