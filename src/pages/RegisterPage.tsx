@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { ChangeEvent, useState } from "react";
-import { Button } from "../components/Button";
-import { Input } from "../components/Input";
+import { Button } from "../components/shared/Button";
+import { Input } from "../components/shared/Input";
 import axios from "axios";
 
 type RegistrationInfo = { username: string; email: string; password: string };
